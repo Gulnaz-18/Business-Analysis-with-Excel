@@ -1,0 +1,40 @@
+Sub Correlation()
+    n = 200
+    
+    Dim x(200)
+    Dim y(200)
+    
+    For i = 1 To n
+       x(i) = Cells(i + 1, 3)
+       y(i) = Cells(i + 1, 9)
+    Next i
+    
+    sum_x = 0
+    sum_y = 0
+    
+    For i = 1 To n
+       sum_x = sum_x + x(i)
+       sum_y = sum_y + y(i)
+    Next i
+    
+    mean_x = sum_x / 200
+    mean_y = sum_y / 200
+    
+    num = 0
+    s1 = 0
+    s2 = 0
+    
+    For i = 1 To n
+       num = num + ((x(i) - mean_x) * (y(i) - mean_y))
+       s1 = s1 + ((x(i) - mean_x) * (x(i) - mean_x))
+       s2 = s2 + ((y(i) - mean_y) * (y(i) - mean_y))
+    Next i
+    
+    r = num / Sqr(s1 * s2)
+    
+    Cells(9, 16) = "Correlation coefficient of housing median age and MEDV is"
+    Cells(9, 17) = r
+    
+    Cells(10, 16) = "Correlation coefficient using CORREL function "
+    Cells(10, 17) = "=CORREL(C2:C200, I2:I200)"
+End Sub
