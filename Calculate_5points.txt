@@ -1,0 +1,21 @@
+Sub calculate_5point()
+   Minimum = WorksheetFunction.Quartile(Range("h2:h200"), 0)
+   Q1 = WorksheetFunction.Quartile(Range("h2:h200"), 1)
+   Q2 = WorksheetFunction.Quartile(Range("h2:h200"), 2)
+   Q3 = WorksheetFunction.Quartile(Range("h2:h200"), 3)
+   Minimum = WorksheetFunction.Quartile(Range("h2:h200"), 4)
+   
+   IQR = Q3 - Q1
+   Cells(2, 16) = "Minimum of median income is"
+   Cells(2, 17) = Minimum
+   Cells(3, 16) = "Q1 of median income is"
+   Cells(3, 17) = Q1
+   Cells(4, 16) = "Q2 of median income is"
+   Cells(4, 17) = Q2
+   Cells(5, 16) = "Q3 of median income is"
+   Cells(5, 17) = Q3
+   Cells(6, 16) = " Minimum of median income is"
+   Cells(6, 17) = Minimum
+   Cells(7, 16) = "IQR of median income is"
+   Cells(7, 17) = IQR
+End Sub
