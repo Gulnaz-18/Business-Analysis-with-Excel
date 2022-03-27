@@ -1,0 +1,21 @@
+Sub calculate_mean()
+   n = 200
+   
+   Dim x(200)
+   
+   For c = 1 To 9
+      For i = 1 To n
+          x(i) = Cells(i + 1, c)
+      Next i
+      
+      sum_x = 0
+      
+      For i = 1 To n
+          sum_x = sum_x + x(i)
+      Next i
+      
+      mean_x = sum_x / 200
+      
+      Cells(202, c) = mean_x
+   Next c
+End Sub
